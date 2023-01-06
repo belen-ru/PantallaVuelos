@@ -1,0 +1,108 @@
+﻿<Window x:Class="PantallaVuelos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PantallaVuelos"
+        xmlns:vm="clr-namespace:PantallaVuelos.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="950" Width="1700" MaxWidth="1700" MinWidth="1700" MaxHeight="950" MinHeight="950">
+    <Window.DataContext>
+        <vm:AerolineaViewModels></vm:AerolineaViewModels>
+    </Window.DataContext>
+
+    <Grid Background="#FF1F1F1F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition  ></RowDefinition>
+
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+              <Image Source="/Assets/halcon1.png" Height="150" Width="150" />
+
+            <Label Grid.ColumnSpan="5" HorizontalAlignment="Center" FontFamily="Neo Sans Std Medium" FontSize="80" Foreground="White" >AeroTEC</Label>
+            <Label FontWeight="Bold" Foreground="White" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" >TIME</Label>
+            <Label FontWeight="Bold"   Foreground="White" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" >DESTINATION</Label>
+            <Label FontWeight="Bold"   Foreground="White" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" >FLIGHT</Label>
+            <Label  FontWeight="Bold"  Foreground="White" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" >GATE</Label>
+            <Label FontWeight="Bold"  Foreground="White" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" >REMARKS</Label>
+        </Grid>
+
+
+       
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding AerolineaList}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Margin="10"  Background="#FF2F2F2F" Orientation="Vertical"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        
+                            <Grid Width="1680" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" ></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                    <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                    <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                    <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                    <ColumnDefinition Width=".2*" ></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+                            <Label FontFamily="CarlosFont" Foreground="#FFE2B949" Margin="1,5" HorizontalAlignment="Center" FontSize="25" Content="{Binding Time}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" Foreground="#FFE2B949" Margin="1,5"   HorizontalAlignment="Center" Grid.Column="1"  FontSize="30" Content="{Binding Destination}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" Foreground="#FFE2B949" Margin="1,5"   HorizontalAlignment="Center" Grid.Column="2" FontSize="30" Content="{Binding Flight}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" Foreground="#FFE2B949" Margin="1,5"  HorizontalAlignment="Center" Grid.Column="3" FontSize="30" Content="{Binding Gate}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" Foreground="#FFE2B949" Margin="1,5"  HorizontalAlignment="Center" Grid.Column="4" FontSize="30" Content="{Binding Remarks}" Background="#FF252323" ></Label>
+                                    
+                            </Grid>
+
+                        
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <Label HorizontalAlignment="Center" FontSize="20" >pene</Label>
+            <Label HorizontalAlignment="Center" Grid.Column="1" FontSize="20" >pene</Label>
+            <Label HorizontalAlignment="Center" Grid.Column="2" FontSize="20" >pene</Label>
+            <Label HorizontalAlignment="Center" Grid.Column="3" FontSize="20" >pene</Label>
+            <Label HorizontalAlignment="Center" Grid.Column="4" FontSize="20" >pene</Label>
+       
+        </Grid>-->
+
+
+    </Grid>
+    
+</Window>
